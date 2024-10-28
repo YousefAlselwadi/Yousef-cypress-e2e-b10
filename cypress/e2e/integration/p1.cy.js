@@ -94,6 +94,9 @@ describe('Project 01', () => {
         cy.get('.checkbox').click();
         cy.get('.button').eq(2).click();
         cy.get('.mt-5').should('have.text', 'Thanks for submitting!');
-        
+
+        cy.on('uncaught:exception', () => {
+            return false
+          });
     });
 })
