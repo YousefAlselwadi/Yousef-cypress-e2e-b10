@@ -37,5 +37,4 @@ describe("Class_practice01", () => {
     cy.on('uncaught:exception', () => {
         return false
       });
-
 });
