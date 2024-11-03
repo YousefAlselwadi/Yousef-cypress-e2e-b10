@@ -2,7 +2,6 @@
 
 describe("Handling Multiple Windows", () => {
     beforeEach(() => {
-        cy.visit("https://www.techglobal-training.com/frontend");
         cy.clickCard("Multiple Windows");
     });
 
@@ -26,7 +25,7 @@ describe("Handling Multiple Windows", () => {
     it("Test Case", () => {
 
         cy.get('#apple').invoke('removeAttr', 'target').click()
-        cy.title().should('contains', 'Apple')
+        cy.title().should('contain', 'Apple')
 
         cy.go(-1)
 
