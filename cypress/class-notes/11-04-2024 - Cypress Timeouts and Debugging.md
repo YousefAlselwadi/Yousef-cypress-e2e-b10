@@ -22,7 +22,7 @@
 
 		2. Child
 
-			Child commands are the commands that we can chain any CYp[ress command
+			Child commands are the commands that we can chain any Cypress command
 
 				- should
 				- type, click ( all the action commands )
