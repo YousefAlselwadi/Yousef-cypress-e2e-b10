@@ -2,6 +2,7 @@
 
 describe("Keyboard & Mouse Actions", () => {
   beforeEach(() => {
+    cy.visit("https://www.techglobal-training.com/frontend");
     cy.clickCard("Actions");
   });
 
