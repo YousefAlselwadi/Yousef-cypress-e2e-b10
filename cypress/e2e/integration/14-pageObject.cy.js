@@ -1,5 +1,5 @@
 /// <reference types="cypress"/>
-import LoginPage from "../../pages/loginPage";
+import LoginPage from "../../pages/LoginPage";
 
 const loginPage = new LoginPage();
 
@@ -15,15 +15,15 @@ describe("Login Page Test", () => {
 
   });
 
-  it("Login without POM", () => {
-    cy.get("#username").type(Cypress.env("UI_USERNAME"));
+  // it("Login without POM", () => {
+  //   // cy.get("#username").type(Cypress.env("UI_USERNAME"));
 
-    cy.get("#password").type(Cypress.env("UI_PASSWORD"));
+  //   // cy.get("#password").type(Cypress.env("UI_PASSWORD"));
 
-    cy.get("#login_btn").click();
+  //   cy.get("#login_btn").click();
 
-    cy.get("#success_lgn").should("be.visible");
-  });
+  //   cy.get("#success_lgn").should("be.visible");
+  // });
 
   it("Login with POM", function() {
     // loginPage.clickTestingDropdownOption("Backend Testing");

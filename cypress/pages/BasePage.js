@@ -1,47 +1,56 @@
-import BasePage from "./BasePage"
-
-class LoginPage extends BasePage {
-
+class BasePage {
   /* Locators */
-  getUserNameField() {
-    return cy.get("#username")
+  getLogo() {
+    return cy.get("#logo");
   }
 
-  getPasswordField() {
-    return cy.get("#password")
+  getTestingDropdown() {
+    return cy.get("#dropdown-testing");
   }
 
-  getSubmitButton() {
-    return cy.get("#login_btn")
+  getExercisesDropdown() {
+    return cy.get("#dropdown-exercises");
   }
 
-  getSuccessMessage() {
-    return cy.get("#success_lgn")
+  getMainHeading() {
+    return cy.get("#main_heading");
   }
 
-  getErrorMessage() {
-    return cy.get('#error_message')
+  getMockInterviews() {
+    return cy.contains("div", "Mock Interviews");
   }
-
 
   /* Methods */
-
-  clickLoginButton() {
-    this.getSubmitButton().click()
+  hoverTestingDropdown() {
+    this.getTestingDropdown().realHover();
   }
 
-  userLogin(username, password) {
-    this.getUserNameField().type(username)
-    this.getPasswordField().type(password)
-    this.clickLoginButton()
+  /**
+   * Clicks a specific option in the testing dropdown after hovering over it.
+   *
+   * @param {string} option - The option to click ("Frontend Testing" or "Backend Testing").
+   * @throws {Error} If the option is invalid.
+   */
+  clickTestingDropdownOption(option) {
+    this.hoverTestingDropdown();
+
+    const optionMapping = {
+      "Frontend Testing": "#frontend-option",
+      "Backend Testing": "#backend-option",
+    };
+
+    const optionSelector = optionMapping[option];
+
+    if (!optionSelector) {
+      throw new Error(`Invalid option: ${option}`);
+    }
+
+    cy.get(optionSelector).realClick();
+
+    cy.on("uncaught:exception", () => {
+      return false;
+    });
   }
 }
 
-export default LoginPage
-
-// const locators = Object.freeze({
-//   main_heading: '#main_heading',
-//   username: '#username'
-// })
-
-// locators = locators
+export default BasePage;

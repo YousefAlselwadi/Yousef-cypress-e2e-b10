@@ -14,7 +14,7 @@
 //
 
 Cypress.Commands.add('clickCard', (link) => {
-  cy.contains(".card", link).click();
+  cy.contains('.card, [class*="projectCard"]', link).click();
 })
 
 Cypress.Commands.add('selectDropdownOption', (locator, option) => {
@@ -89,15 +89,15 @@ Cypress.Commands.add('haveText', { prevSubject: 'element' }, (subject, expectedT
 
 /**
  * Create a child custom command that will validate the attribute and the value of web element 
- */
+ */ 
 
-Cypress.Commands.add('assertAttribute', { prevSubject: 'element' }, (subject, attribute, value) => {
-  if (value === null) {
+Cypress.Commands.add('assertAttribute', { prevSubject: 'element' } ,(subject, attribute, value) => {
+  if(value === null) {
     cy.wrap(subject).should('have.attr', attribute)
   } else {
     cy.wrap(subject).should('have.attr', attribute, value)
   }
-
+  
 })
 
 //
