@@ -16,9 +16,9 @@ describe("Login Page Test", () => {
   });
 
   // it("Login without POM", () => {
-  //   // cy.get("#username").type(Cypress.env("UI_USERNAME"));
+  //   cy.get("#username").type(Cypress.env("UI_USERNAME"));
 
-  //   // cy.get("#password").type(Cypress.env("UI_PASSWORD"));
+  //   cy.get("#password").type(Cypress.env("UI_PASSWORD"));
 
   //   cy.get("#login_btn").click();
 
