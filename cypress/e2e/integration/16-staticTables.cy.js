@@ -21,7 +21,7 @@ describe("Static Tables", () => {
      * Click on the "Tables" card
      * Validate the headers of the table are "Rank", "Company", "Employees", and "Country"
      */
-    it("Verify the ehaders of the table", function()  { 
+    it("Verify the ehaders of the table", { tags: '@table' }, () => { 
         tablePage.getCompanyTableHeaders().each(function($el, index) {
             cy.wrap($el).should('have.text', this.headers[index])
         })

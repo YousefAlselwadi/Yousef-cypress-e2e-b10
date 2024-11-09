@@ -3,7 +3,7 @@ import LoginPage from "../../pages/LoginPage";
 
 const loginPage = new LoginPage();
 
-describe("Login Page Test", () => {
+describe("Login Page Test", { tags: '@regression' }, () => {
   beforeEach(() => {
     cy.visit("https://www.techglobal-training.com/frontend");
     cy.clickCard("Login Function");
@@ -39,7 +39,7 @@ describe("Login Page Test", () => {
    * 3. Validate error message is "Invalid Username entered!"
    */
 
-  it("Login with POM - Negative", { tags: ['@smoke']}, () => {
+  it("Login with POM - Negative", { tags: '@smoke' }, () => {
     loginPage.userLogin(Cypress.env('UI_USERNAME', 'WrongUser'), Cypress.env('UI_PASSWORD', 'WrongPassword'))
     loginPage.getErrorMessage().should('have.text', "Invalid Username entered!")
   });
