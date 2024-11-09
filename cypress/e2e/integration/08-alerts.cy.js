@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Handling Alerts", () => {
+describe("Handling Alerts", { tags: ['@smoke']}, () => {
   beforeEach(() => {
     cy.visit("https://www.techglobal-training.com/frontend");
     cy.clickCard("Alerts");
