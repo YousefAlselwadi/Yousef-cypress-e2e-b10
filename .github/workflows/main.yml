@@ -1,5 +1,7 @@
 name: End-to-end tests
 on: push
+  # schedule:
+  #     -cron: '50 12 * * 6' 
 jobs:
   cypress-run:
     runs-on: ubuntu-22.04
@@ -11,7 +13,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-        # browser: chrome
-        # headed: false
-        # sec: cypress/e2e/spec1.cy.js
-        command: npm run test:smoke
+          # browser: chrome
+          # headed: false
+          # sec: cypress/e2e/spec1.cy.js
+          command: npm run test:smoke
