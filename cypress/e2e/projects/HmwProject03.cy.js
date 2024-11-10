@@ -39,17 +39,12 @@ describe("Book Your Trip From Tests", () => {
     bookingPage.getDatePicker1().should("be.visible").and("be.enabled");
     bookingPage.getDatePicker2().should("be.visible").and("be.disabled");
     bookingPage.getBookButton().should("be.visible").and("be.enabled");
-    bookingPage.getRoundTrip().click()
-    bookingPage.getRadioButtonRoundTrip().should("be.checked")
-    bookingPage.getOneWayButton().should("not.be.checked")
+    bookingPage.getRoundTrip().click();
+    bookingPage.getRadioButtonRoundTrip().should("be.checked");
+    bookingPage.getOneWayButton().should("not.be.checked");
 
     validateTextAndLabels();
     validateDropDowns();
   });
 
-//   it("Test Case 02 - Validate the Book your trip form when Round trip is selected", () => {
-//     bookingPage.getOneWay().click();
-//     validateTextAndLabels();
-//     validateDropDowns();
-//   })
 });
