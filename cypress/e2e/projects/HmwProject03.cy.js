@@ -4,7 +4,7 @@ import BookingPage from "../../pages/BookingPage";
 
 const bookingPage = new BookingPage();
 
-describe("Book Your Trip From Tests", () => {
+describe("Project03", () => {
   beforeEach(() => {
     cy.visit("https://www.techglobal-training.com/frontend/project-3");
   });
@@ -45,6 +45,54 @@ describe("Book Your Trip From Tests", () => {
 
     validateTextAndLabels();
     validateDropDowns();
+  });
+
+  it("Test Case 03 - Validate the booking for 1 passenger and one way", () => {
+    bookingPage.getOneWay().click();
+    bookingPage.getCabinClassDropDown().realClick();
+    bookingPage.getCabinClassDropDown().select("Business");
+    bookingPage.getFromDropDown().realClick();
+    bookingPage.getFromDropDown().select("Illinois");
+    bookingPage.getToDropDown().realClick();
+    bookingPage.getToDropDown().select("Florida");
+    bookingPage.getNumbersOfPasserngersDropDown().realClick();
+    bookingPage.getNumbersOfPasserngersDropDown().select("1");
+    bookingPage.getPassengerOneDropDown().realClick();
+    bookingPage.getPassengerOneDropDown().select("Senior (65+)");
+    bookingPage.getBookButton().click();
+    
+  });
+
+  it("Test Case 04 - Validate the booking for 1 passenger and round trip", () => {
+    bookingPage.getRoundTrip().click();
+    bookingPage.getCabinClassDropDown().realClick();
+    bookingPage.getCabinClassDropDown().select("First");
+    bookingPage.getFromDropDown().realClick();
+    bookingPage.getFromDropDown().select("California");
+    bookingPage.getToDropDown().realClick();
+    bookingPage.getToDropDown().select("Illinois");
+    bookingPage.getNumbersOfPasserngersDropDown().realClick();
+    bookingPage.getNumbersOfPasserngersDropDown().select("1");
+    bookingPage.getPassengerOneDropDown().realClick();
+    bookingPage.getPassengerOneDropDown().select("Adult (16-64)");
+    bookingPage.getBookButton().click();
+  });
+
+  it("Test Case 05 - Validate the booking for 2 passengers and one way", () => {
+    bookingPage.getOneWay().click();
+    bookingPage.getCabinClassDropDown().realClick();
+    bookingPage.getCabinClassDropDown().select("Premium Economy");
+    bookingPage.getFromDropDown().realClick();
+    bookingPage.getFromDropDown().select("New York");
+    bookingPage.getToDropDown().realClick();
+    bookingPage.getToDropDown().select("Texas");
+    bookingPage.getNumbersOfPasserngersDropDown().realClick();
+    bookingPage.getNumbersOfPasserngersDropDown().select("2");
+    bookingPage.getPassengerOneDropDown().realClick()
+    bookingPage.getPassengerOneDropDown().select("Adult (16-64)");
+    bookingPage.getPassengerTwoDropDown().select("Child (2-11)");
+    bookingPage.getBookButton().click();
+    
   });
 
 });
